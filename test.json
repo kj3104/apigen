@@ -1,0 +1,18 @@
+{
+  "test1" : {
+    "param1":"param"
+  },
+  "test2" : {
+    "params":{
+      "param1":"param",
+      "param2":100
+    }
+  },
+  "test3" : {
+    "param1":"param",
+    "param2":{
+      "param2-1":"param",
+      "param2-2":106
+    }
+  }
+}
