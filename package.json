@@ -1,5 +1,5 @@
 {
-  "name": "homebrew-apigen",
+  "name": "apigen",
   "version": "1.0.0",
   "description": "Node.js RESTful API Generator",
   "bin": {
@@ -10,12 +10,12 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/luca3104/homebrew-apigen.git"
+    "url": "git+https://github.com/luca3104/apigen.git"
   },
   "author": "",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/luca3104/homebrew-apigen/issues"
+    "url": "https://github.com/luca3104/apigen/issues"
   },
-  "homepage": "https://github.com/luca3104/homebrew-apigen#readme"
+  "homepage": "https://github.com/luca3104/apigen#readme"
 }
