@@ -20,7 +20,7 @@ Return Value is
 
 
 ## Example
-Create json file
+Create json file [test.json]
 ```json:test.json
 {
   "test" : {
@@ -38,9 +38,12 @@ Create json file
   }
 }
 ```
-Execute node command
-`$ node api-gen test.json`
-Execute curl comamnd
-`$ curl -X GET http://127.0.0.1:3000/test/test`
-Return
-`{"param1":"param","param2":{"param2-1":"param","param2-2":100}`
+Execute node command  
+`$ node api-gen test.json`  
+Execute curl comamnd  
+`$ curl -X GET http://127.0.0.1:3000/test/test`  
+Return  
+`{"param1":"param","param2":{"param2-1":"param","param2-2":100}`  
+
+## License
+MIT
