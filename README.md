@@ -14,8 +14,8 @@ Node.js RESTful API Generator
 `$ node api-gen [json file]`
 
 ### Check with curl command
-`$ curl -X GET http://127.0.0.1:3000/endpoint`
-Return Value is
+`$ curl -X GET http://127.0.0.1:3000/endpoint`  
+Return Value is  
 `{"response-key":"response-value"}`
 
 
