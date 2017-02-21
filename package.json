@@ -1,0 +1,21 @@
+{
+  "name": "api-generator",
+  "version": "1.0.0",
+  "description": "Node.js RESTful API Generator",
+  "bin": {
+    "apigen": "api-gen.js"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/luca3104/api-generator.git"
+  },
+  "author": "",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/luca3104/api-generator/issues"
+  },
+  "homepage": "https://github.com/luca3104/api-generator#readme"
+}

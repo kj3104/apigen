@@ -14,10 +14,13 @@ Node.js RESTful API Generator
 `$ node api-gen [json file]`
 
 ### Check with curl command
-`$ curl -X GET http://127.0.0.1:3000/endpoint`  
+`$ curl -X GET http://127.0.0.1:3104/endpoint`  
 Return Value is  
 `{"response-key":"response-value"}`
 
+### Port: Extra parameter
+You can choose port number.  
+`$ node api-gen [json file] [port num]`
 
 ## Example
 Create json file [test.json]
@@ -41,7 +44,7 @@ Create json file [test.json]
 Execute node command  
 `$ node api-gen test.json`  
 Execute curl comamnd  
-`$ curl -X GET http://127.0.0.1:3000/test/test`  
+`$ curl -X GET http://127.0.0.1:3104/test/test`  
 Return  
 `{"param1":"param","param2":{"param2-1":"param","param2-2":100}`  
 

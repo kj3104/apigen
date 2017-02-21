@@ -1,3 +1,5 @@
+#! /usr/bin/env node
+
 /*
 The MIT License (MIT)
 
@@ -22,11 +24,16 @@ OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 THE SOFTWARE.
 */
 
+'use strict';
+
 const fs = require('fs');
-const http = require("http");
+const http = require('http');
 
+var host = 3104;
 var server = http.createServer();
-
+if(process.argv[3] !== void 0){
+  host = process.argv[3];
+}
 server.on('request', function (req, res) {
   var json = JSON.parse(fs.readFileSync('./'+process.argv[2], 'utf8'));
   var key = req.url.replace(/^\u002f/g, "");
@@ -44,6 +51,6 @@ server.on('request', function (req, res) {
   }
 })
 
-server.listen(3000, function () {
-  console.log('listening on ' + 3000);
+server.listen(host, function () {
+  console.log('listening on ' + host);
 });
