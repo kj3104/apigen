@@ -30,6 +30,7 @@ const fs = require('fs');
 const http = require('http');
 
 var host = 3104;
+var header = 200
 var server = http.createServer();
 if(process.argv[3] !== void 0){
   host = process.argv[3];
@@ -37,17 +38,59 @@ if(process.argv[3] !== void 0){
 server.on('request', function (req, res) {
   var json = JSON.parse(fs.readFileSync('./'+process.argv[2], 'utf8'));
   var key = req.url.replace(/^\u002f/g, "");
-  res.writeHead(200, {
-    'Content-Type':'application/json',
-    'Connection':'close'
-  });
   if(json[key]){
-    var resPrams = JSON.stringify(json[key]);
-    console.log(new Date() + ", " + req.method + "=" + key + ", response=" + resPrams);
-    res.write(resPrams);
-    res.end();
+    if('status' in json[key]){
+      var statusArr = json[key]["status"];
+      var success = 200;
+      var error = 400;
+      statusArr.forEach(function(status) {
+        if(status >= 200 && status < 300){
+          success = status
+          header = success;
+        }else{
+          error = status;
+        }
+      });
+      var requireArr = json[key]["require"];
+      var data = '';
+      req.on('data', function (chunk) {
+        data += chunk;
+      })
+      req.on('end', function () {
+        var match = true;
+        var dataObj = JSON.parse(data);
+        var resPrams;
+        for (var req in requireArr) {
+          console.log(requireArr[req]);
+          if(requireArr[req] in dataObj){
+            console.log("exist");
+          }else{
+            console.log("don't exist");
+            match = false
+            header = error
+          }
+        }
+        //ここでヘッダー判別
+        res.writeHead(header, {
+          'Content-Type':'application/json',
+          'Connection':'close'
+        });
+        if(match == true){
+          resPrams = JSON.stringify(json[key][success]);
+        } else {
+          resPrams = JSON.stringify(json[key][error]);
+        }
+        console.log(new Date() + ", " + req.method + "=" + key + ", status="+header+ ", response=" + resPrams);
+        res.write(resPrams);
+        res.end();
+      })
+    }
   }else{
-    console.log(new Date() + ", " + req.method + "=" + key + ", response={}");
+    res.writeHead(404, {
+      'Content-Type':'application/json',
+      'Connection':'close'
+    });
+    console.log(new Date() + ", " + req.method + "=" + key + ", status=404, response={}");
     res.write(JSON.stringify({}));
     res.end();
   }
