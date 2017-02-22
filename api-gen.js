@@ -85,6 +85,15 @@ server.on('request', function (req, res) {
         res.write(resPrams);
         res.end();
       })
+    } else {
+      res.writeHead(header, {
+        'Content-Type':'application/json',
+        'Connection':'close'
+      });
+      resPrams = JSON.stringify(json[key]);
+      console.log(new Date() + ", " + req.method + "=" + key + ", status="+header+ ", response=" + resPrams);
+      res.write(resPrams);
+      res.end();
     }
   }else{
     var resPrams;
