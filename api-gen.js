@@ -60,12 +60,9 @@ server.on('request', function (req, res) {
         var match = true;
         var dataObj = JSON.parse(data);
         var resPrams;
-        for (var req in requireArr) {
-          console.log(requireArr[req]);
-          if(requireArr[req] in dataObj){
-            console.log("exist");
+        for (var reqest in requireArr) {
+          if(requireArr[reqest] in dataObj){
           }else{
-            console.log("don't exist");
             match = false
             header = error
           }
@@ -77,7 +74,7 @@ server.on('request', function (req, res) {
           resPrams = JSON.stringify(json[key][error]);
         } else {
           header = 404;
-          resPrams = JSON.stringify({"error":"error"});
+          resPrams = JSON.stringify({"error":"status does not exist"});
         }
 
         res.writeHead(header, {
