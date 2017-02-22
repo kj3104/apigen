@@ -70,28 +70,39 @@ server.on('request', function (req, res) {
             header = error
           }
         }
-        //ここでヘッダー判別
+
+        if(match == true && String(success) in json[key]){
+          resPrams = JSON.stringify(json[key][success]);
+        } else if (match == false && String(error) in json[key]) {
+          resPrams = JSON.stringify(json[key][error]);
+        } else {
+          header = 404;
+          resPrams = JSON.stringify({"error":"error"});
+        }
+
         res.writeHead(header, {
           'Content-Type':'application/json',
           'Connection':'close'
         });
-        if(match == true){
-          resPrams = JSON.stringify(json[key][success]);
-        } else {
-          resPrams = JSON.stringify(json[key][error]);
-        }
         console.log(new Date() + ", " + req.method + "=" + key + ", status="+header+ ", response=" + resPrams);
         res.write(resPrams);
         res.end();
       })
     }
   }else{
-    res.writeHead(404, {
+    var resPrams;
+    header = 404;
+    if("404" in json){
+      resPrams = JSON.stringify(json["404"]);
+    }else{
+      resPrams = JSON.stringify({"error":"error"});
+    }
+    res.writeHead(header, {
       'Content-Type':'application/json',
       'Connection':'close'
     });
-    console.log(new Date() + ", " + req.method + "=" + key + ", status=404, response={}");
-    res.write(JSON.stringify({}));
+    console.log(new Date() + ", " + req.method + "=" + key + ", status=404, response="+resPrams);
+    res.write(resPrams);
     res.end();
   }
 })
