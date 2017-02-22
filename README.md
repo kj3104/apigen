@@ -56,5 +56,8 @@ Execute curl comamnd
 Return  
 `{"param1":"param","param2":{"param2-1":"param","param2-2":100}`  
 
+## Author
+[luca3104](https://github.com/luca3104)
+
 ## License
 MIT
