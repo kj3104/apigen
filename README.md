@@ -18,6 +18,7 @@ $ brew install apigen
 }
 ```
 
+### Execute command
 `$ apigen [json file]`
 
 ### Check with curl command
