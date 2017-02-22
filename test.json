@@ -1,6 +1,13 @@
 {
   "test1" : {
-    "param1":"param"
+    "status":[201,400],
+    "require":["test1","test2"],
+    "201":{
+      "param1":"param"
+    },
+    "400":{
+      "error":"error"
+    }
   },
   "test2" : {
     "params":{
@@ -14,5 +21,8 @@
       "param2-1":"param",
       "param2-2":106
     }
+  },
+  "404":{
+    "message":"does not exist"
   }
 }
