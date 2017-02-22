@@ -2,7 +2,8 @@
 Node.js RESTful API Generator
 
 ## Requirement
-:star2: Node.js 4.0+
+:star2: Node.js 4.0+  
+:star2: Homebrew
 
 ## Installation
 ### Homebrew
