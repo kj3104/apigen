@@ -1,8 +1,8 @@
 {
   "test1" : {
-    "status":[201,400],
+    "status":[200,400],
     "require":["test1","test2"],
-    "201":{
+    "200":{
       "param1":"param"
     },
     "400":{
