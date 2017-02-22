@@ -1,6 +1,6 @@
 {
   "name": "apigen",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "description": "Node.js RESTful API Generator",
   "bin": {
     "apigen": "api-gen.js"
