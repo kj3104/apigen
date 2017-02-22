@@ -60,8 +60,8 @@ server.on('request', function (req, res) {
         var match = true;
         var dataObj = JSON.parse(data);
         var resPrams;
-        for (var reqest in requireArr) {
-          if(requireArr[reqest] in dataObj){
+        for (var require in requireArr) {
+          if(requireArr[require] in dataObj){
           }else{
             match = false
             header = error
