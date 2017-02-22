@@ -43,9 +43,11 @@ server.on('request', function (req, res) {
   });
   if(json[key]){
     var resPrams = JSON.stringify(json[key]);
+    console.log(new Date() + ", " + req.method + "=" + key + ", response=" + resPrams);
     res.write(resPrams);
     res.end();
   }else{
+    console.log(new Date() + ", " + req.method + "=" + key + ", response={}");
     res.write(JSON.stringify({}));
     res.end();
   }
