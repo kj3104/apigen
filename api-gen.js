@@ -114,5 +114,5 @@ server.on('request', function (req, res) {
 })
 
 server.listen(host, function () {
-  console.log('listening on ' + host);
+  console.log('apigen listening on ' + host);
 });
