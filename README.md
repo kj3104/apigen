@@ -1,17 +1,15 @@
 # api-generator
 Node.js RESTful API Generator
 
-## Usage
-
+## Installation
 ### Homebrew
-#### Execute command
 ```
 $ brew tap luca3104/apigen
 $ brew install apigen
 ```
 
-### Download this repository
-#### Create JSON file
+## Usage
+### Create JSON file
 ```json
 {
   "endpoint" : {
@@ -20,16 +18,16 @@ $ brew install apigen
 }
 ```
 
-`$ node api-gen [json file]`
+`$ apigen [json file]`
 
-#### Check with curl command
+### Check with curl command
 `$ curl -X GET http://127.0.0.1:3104/endpoint`  
 Return Value is  
 `{"response-key":"response-value"}`
 
-#### Port: Extra parameter
+### PORT: Extra parameter
 You can choose port number.  
-`$ node api-gen [json file] [port num]`
+`$ apigen [json file] [PORT num]`
 
 ## Example
 Create json file [test.json]
@@ -51,7 +49,7 @@ Create json file [test.json]
 }
 ```
 Execute node command  
-`$ node api-gen test.json`  
+`$ apigen test.json`  
 Execute curl comamnd  
 `$ curl -X GET http://127.0.0.1:3104/test/test`  
 Return  
