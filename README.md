@@ -35,9 +35,10 @@ You can choose port number.
 
 ### Cutome JSON
 You can set detail.  
+
 | Name | Type |  Detail |
 |:-----|:----------:|:--------|
-| status | number array | success and error status codes | 
+| status | number array | success and error status codes |
 | require | string array | require parameter for request |
 | 200, 400, ...etc | object | response parameter by status |
 | 404 | object | object for Not found |
